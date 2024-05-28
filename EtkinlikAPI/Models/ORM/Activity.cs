@@ -14,6 +14,11 @@ namespace EtkinlikAPI.Models.ORM
         [ForeignKey("CategoryID")]
         public Category Category { get; set; }
 
+        public Guid CityID { get; set; }
+
+        [ForeignKey("CityID")]
+        public City City { get; set; }
+
 
     }
 }

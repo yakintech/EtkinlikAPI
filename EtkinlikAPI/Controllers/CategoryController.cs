@@ -19,7 +19,6 @@ namespace EtkinlikAPI.Controllers
 
         // get all categories
         [HttpGet]
-
         public IActionResult Get()
         {
             List<GetAllCategoriesResponseDto> categories = _db.Categories.Where(x => x.IsDeleted == false).Select(x => new GetAllCategoriesResponseDto

@@ -1,0 +1,4 @@
+﻿1) Microsoft.AspNetCore.Authentication.JwtBearer kutuphanesini manage nuget packagedan ekledik
+2) program.cs de jwtToken optionslarini ekledik ve token genel ayarlarini yaptik
+3) app.UseAuthentication(); ve app.UseAuthorization(); middlewarelerini ekledik
+4) Token uretecek metodumu yaziyorum. EtkinlikTokenHandler.cs

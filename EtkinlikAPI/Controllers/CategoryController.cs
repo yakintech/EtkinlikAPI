@@ -1,5 +1,6 @@
 ﻿using EtkinlikAPI.Models.DTO;
 using EtkinlikAPI.Models.ORM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ namespace EtkinlikAPI.Controllers
 
         // get all categories
         [HttpGet]
+
         public IActionResult Get()
         {
             List<GetAllCategoriesResponseDto> categories = _db.Categories.Where(x => x.IsDeleted == false).Select(x => new GetAllCategoriesResponseDto
@@ -53,13 +55,16 @@ namespace EtkinlikAPI.Controllers
             }
         }
 
+
+        [Authorize]
         // add category
         [HttpPost]
         public IActionResult Post(CreateCategoryRequestDto model)
         {
             var entity = new Category
             {
-                Name = model.Name
+                Name = model.Name,
+                Icon = ""
             };
 
             _db.Categories.Add(entity);
